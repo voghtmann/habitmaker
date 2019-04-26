@@ -1,0 +1,65 @@
+﻿@model MVCRoutines.Models.Routine
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@*The BeginForm helper returns the detail to an action
+    method with the same name as the view*@
+@using (Html.BeginForm())
+{
+
+    <h2>Create Day</h2>
+
+    @*The LabelFor helper formats the headers as labels.
+        The EditorFor helper accepts user input and assigns it
+        to the corressponding field in the model class(DailyRoutine)*@
+
+    @Html.LabelFor(r => r.Day)
+    @Html.EditorFor(r => r.Day)
+
+    @Html.LabelFor(r => r.Date)
+    @Html.EditorFor(r => r.Date)
+
+    @Html.LabelFor(r => r.RestPulse)
+    @Html.EditorFor(r => r.RestPulse)
+
+    @Html.LabelFor(r => r.Weight)
+    @Html.EditorFor(r => r.Weight)
+
+    @Html.LabelFor(r => r.Breakfast)
+    @Html.EditorFor(r => r.Breakfast)
+
+    @Html.LabelFor(r => r.Lunch)
+    @Html.EditorFor(r => r.Lunch)
+
+    @Html.LabelFor(r => r.Dinner)
+    @Html.EditorFor(r => r.Dinner)
+
+    @Html.LabelFor(r => r.Snack)
+    @Html.EditorFor(r => r.Snack)
+
+    @Html.LabelFor(r => r.Water)
+    @Html.EditorFor(r => r.Water)
+
+    @Html.LabelFor(r => r.QiGong)
+    @Html.EditorFor(r => r.QiGong)
+
+    @Html.LabelFor(r => r.PullUps)
+    @Html.EditorFor(r => r.PullUps)
+
+    @Html.LabelFor(r => r.Endurance)
+    @Html.EditorFor(r => r.Endurance)
+
+    @Html.LabelFor(r => r.Meditate)
+    @Html.EditorFor(r => r.Meditate)
+
+    @Html.LabelFor(r => r.Notes)
+    @Html.EditorFor(r => r.Notes)
+
+    <input type="submit" value="Create Day" />
+    @*Submit button is required*@
+}
+
+@Html.ActionLink("Return to List", "Index")
+@*Links back to the index page*@

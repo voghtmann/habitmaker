@@ -1,0 +1,102 @@
+﻿@model IEnumerable<MVCRoutines.Models.Routine>
+
+@*Index view expecting a single 'Routine' object not a list.
+    Use the interface 'IEnumerable' infront of the project name to acccept list data.*@
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Activity Tracker</h2>
+
+@*Use the helper ActionLink to create new entry. First parameter has the text for link. 
+    The second is the action method it will link with*@
+
+@Html.ActionLink("Create New Day", "Create")
+
+<table>
+    @*Add the column headings for the table - <tr> (table row) with <th> (table headings)*@
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Day)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RestPulse)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Breakfast)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lunch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dinner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Snack)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Water)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QiGong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PullUps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endurance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Meditate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Notes)
+        </th>
+    </tr>
+
+    @*Use a foreach loop to fill the body of the table with row items
+        under each column heading - <tr> (table row) with <td> (table column data)*@
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>@Html.DisplayFor(r => item.Day)</td>
+        <td>@Html.DisplayFor(r => item.Date)</td>
+        <td>@Html.DisplayFor(r => item.RestPulse)</td>
+        <td>@Html.DisplayFor(r => item.Weight)</td>
+        <td>@Html.DisplayFor(r => item.Breakfast)</td>
+        <td>@Html.DisplayFor(r => item.Lunch)</td>
+        <td>@Html.DisplayFor(r => item.Dinner)</td>
+        <td>@Html.DisplayFor(r => item.Snack)</td>
+        <td>@Html.DisplayFor(r => item.Water)</td>
+        <td>@Html.DisplayFor(r => item.QiGong)</td>
+        <td>@Html.DisplayFor(r => item.PullUps)</td>
+        <td>@Html.DisplayFor(r => item.Endurance)</td>
+        <td>@Html.DisplayFor(r => item.Meditate)</td>
+        <td>@Html.DisplayFor(r => item.Notes)</td>
+
+        @*The parameters are lambda expressions which includes the field name
+        from the 'Routine' class - (r =>item.field)*@
+
+        @*The 'DisplayFor' helper passes the data to be rendered as HTML in the view*@
+
+        <td>
+            @Html.ActionLink("Edit Record |", "Edit", new { id = item.DailyRoutineId })
+            @Html.ActionLink("Details Record |", "Details", new { id = item.DailyRoutineId })
+            @Html.ActionLink("Delete Record", "Delete", new { id = item.DailyRoutineId })
+        </td>
+        @*Links for Editing, Viewing and Deleting are added to each row. 
+            The record Id is used to select the whole record - item.DailyRoutineId*@
+    </tr>
+    }
+
+</table>
+
+
